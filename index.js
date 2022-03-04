@@ -9,16 +9,16 @@ function After_Click()
   handleSound(this.innerHTML);
   handleAnimation(this.innerHTML);
 }
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function(event) {                    // listening to the pressed keys
   handleSound(event.key);
   handleAnimation(event.key);
 });
 
-function handleAnimation(ch)
-{
-  document.querySelector("." + ch).classList.add("pressed");
+function handleAnimation(ch)                                
+{                                                                         // Added the class name as the character name itself,
+  document.querySelector("." + ch).classList.add("pressed");              // which makes it easy for me to select that particular element 
   setTimeout(function() {
-    document.querySelector("." + ch).classList.remove("pressed");
+    document.querySelector("." + ch).classList.remove("pressed");         // for delay of 0.1 seconds 
   }, 100);
 }
 
@@ -26,7 +26,7 @@ function handleSound(ch)
 {
   switch (ch)
   {
-    case "w" : var audio1 = new Audio("sounds/tom-1.mp3");
+    case "w" : var audio1 = new Audio("sounds/tom-1.mp3");                // adding audio to buttons
                audio1.play();
                break;
     case "a" : var audio2 = new Audio("sounds/tom-2.mp3");
@@ -47,6 +47,6 @@ function handleSound(ch)
     case "l" : var audio7 = new Audio("sounds/snare.mp3");
                audio7.play();
                break;
-    default  : console.log (ch);
+    default  : console.log (ch);                              // if anything other than the selected keys is pressed
   }
 }
